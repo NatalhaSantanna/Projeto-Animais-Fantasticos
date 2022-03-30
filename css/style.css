@@ -1,0 +1,329 @@
+ /*resetar o estilo pre definido das margens e paddings*/
+ 
+ body,
+ h1,
+ h2,
+ ul,
+ li,
+ p,
+ dd,
+ dt,
+ dl {
+     margin: 0px;
+     padding: 0px;
+ }
+ /*responsividade nas imagens*/
+ 
+ img {
+     display: block;
+     max-width: 100%;
+ }
+ 
+ ul {
+     /*tira o estilo de lista(bolinhas)*/
+     list-style: none;
+ }
+ 
+ body {
+     background: #faf6ed;
+     /*muda cor de todos os textos*/
+     color: #222;
+     /*tira a suavidade da font*/
+     -webkit-font-smoothing: antialiased;
+     /*forma colunas na página*/
+     display: grid;
+     /* definir os tamanhos de cada uma das colunas do display grid*/
+     grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+ }
+ 
+ .menu {
+     /*o menu vai da linha 3 até a linha 5*/
+     grid-column: 3/5;
+     margin-top: 2rem;
+     margin-bottom: 2rem;
+     background: #FB5;
+ }
+ 
+ .menu ul {
+     /*coloca cada item do menu um do lado do outro*/
+     display: flex;
+     /*para não quebrar o menu com a diminuição da página*/
+     flex-wrap: wrap;
+     padding: 10px;
+ }
+ 
+ .menu li a {
+     /*separa os links do menu*/
+     display: block;
+     /*espaçamento entre os links do menu*/
+     padding: 10px;
+     margin-right: 10px;
+     color: #222;
+     text-decoration: none;
+     font-family: 'IBM Plex Mono', monospace;
+     /*fonte em negrito*/
+     font-weight: bold;
+     /*colocar tudo em letra maíuscula*/
+     text-transform: uppercase;
+     font-size: 0.875rem;
+     /*espaço entre as letras*/
+     letter-spacing: .1em;
+ }
+ 
+ .grid-section {
+     grid-column: 2/4;
+     width: 100%;
+     /*evita que os elementos grudem na ponta da página*/
+     box-sizing: border-box;
+     /*espaço em relação a borda da página*/
+     padding: 10px;
+     /*colunas na parte das seções*/
+     display: grid;
+     /*separando em 3 colunas*/
+     grid-template-columns: 90px 300px 1fr;
+     /*espaço entre as colunas*/
+     grid-gap: 20px;
+     margin-bottom: 4rem;
+ }
+ 
+ .titulo {
+     font-family: 'Playfair Display SC', serif;
+     font-size: 6rem;
+     /*separação entre as linhas*/
+     line-height: 1;
+     /*tirou o negrito*/
+     font-weight: 400;
+     margin-bottom: 1rem;
+     grid-column: 1 / 4;
+ }
+ 
+ .animais h2 {
+     font-family: 'IBM Plex Mono', monospace;
+     font-size: 1rem;
+     text-transform: uppercase;
+     letter-spacing: 1em;
+     margin-bottom: 1rem;
+     color: #E54;
+ }
+ /*para fazer a imagem do retangulo que vem antes de cada título dos nomes dos animais*/
+ 
+ .animais h2::before {
+     content: '';
+     /*para ficar na mesma linha*/
+     display: inline-block;
+     width: 40px;
+     height: 10px;
+     margin-right: 10px;
+     background: #FB5;
+ }
+ 
+ ;
+ .animais p {
+     font-family: Helvetica, Arial;
+     line-height: 1.2;
+     margin-bottom: 1rem;
+ }
+ /*para fazer a lista de imagens dos animais com a barra scroll*/
+ 
+ .animais-lista {
+     height: 370px;
+     overflow-y: scroll;
+     grid-column: 2;
+ }
+ 
+ .animais-lista li {
+     cursor: pointer;
+ }
+ /*estilizar a barra de rolamento das imagens*/
+ 
+ .animais-lista::-webkit-scrollbar {
+     width: 18px;
+ }
+ 
+ .animais-lista::-webkit-scrollbar-thumb {
+     background: #FB5;
+     border-left: 4px solid #faf6ed;
+     border-right: 4px solid #faf6ed;
+ }
+ 
+ .animais-lista::-webkit-scrollbar-track {
+     background: #faf6ed;
+ }
+ /*para alinhar os textos e titulos a grid 3*/
+ 
+ .animais-descricao {
+     grid-column: 3;
+ }
+ /*para separar um texto do outro*/
+ 
+ .animais-descricao section {
+     margin-bottom: 3rem;
+ }
+ 
+ .faq-lista {
+     grid-column: 2 / 4;
+ }
+ 
+ .faq-lista dt {
+     font-family: 'IBM Plex Mono', monospace;
+     font-weight: bold;
+     /*margem entre as perguntas*/
+     margin-top: 2rem;
+     /*margem entre as perguntas e as respostas*/
+     margin-bottom: .5rem;
+     color: #E54;
+ }
+ /*para fazer a imagem do retangulo que vem antes de cada título das perguntas*/
+ 
+ .faq-lista dt::before {
+     content: '';
+     display: inline-block;
+     width: 20px;
+     height: 10px;
+     margin-right: 10px;
+     background: #FB5;
+ }
+ 
+ .faq-lista dd {
+     font-family: Helvetica, Arial;
+     margin-bottom: .5rem;
+     margin-left: 30px;
+ }
+ 
+ .mapa {
+     grid-column: 2;
+ }
+ 
+ .dados {
+     grid-column: 3;
+ }
+ 
+ .dados li {
+     margin-bottom: 1rem;
+     font-family: Helvetica, Arial;
+ }
+ 
+ .dados li::before {
+     content: '';
+     display: inline-block;
+     width: 20px;
+     height: 10px;
+     margin-right: 10px;
+     background: #FB5;
+ }
+ 
+ .copy {
+     grid-column: 3/5;
+     margin-bottom: 2rem;
+     background: #FB5;
+ }
+ 
+ .copy p {
+     padding: 20px;
+     font-family: 'IBM Plex Mono', monospace;
+     font-weight: bold;
+ }
+ /*media query para adaptar o codigo css caso a pagina diminua de tamanho*/
+ 
+ @media (max-width: 700px) {
+     body {
+         grid-template-columns: 1fr;
+     }
+     .menu,
+     .grid-section,
+     .copy {
+         grid-column: 1;
+     }
+     .grid-section {
+         grid-template-columns: 100px 1fr;
+         grid-gap: 10px;
+     }
+     .animais-lista {
+         grid-column: 1;
+     }
+     .faq-lista,
+     .dados,
+     .mapa {
+         grid-column: 1 / 3;
+     }
+     .grid-section h1 {
+         font-size: 3rem;
+     }
+     .menu {
+         margin-top: 0px;
+     }
+     .copy {
+         margin-bottom: 0px;
+     }
+ }
+ /*muda o css de acordo com o clique nas imagens. esconde os textos que não estão sendo "chamados" pelo click*/
+ 
+ .js .js-tabcontent section {
+     display: none;
+     /*chamar a animação que foi nomeada de "show", coloca o tempo de duração e o forwards é pra dizer que ela termina no "to"*/
+     animation: show .5s forwards;
+ }
+ 
+ .js-tabcontent section.ativo {
+     display: block !important;
+     transform: translate3d(-30px, 0, 0)
+ }
+ /*transição animada a cada vez que tiver um click nas imagens e mudar o texto*/
+ 
+ @keyframes show {
+     /*como a animação inicia*/
+     from {
+         opacity: 0;
+         /*o texto vem da esquerda*/
+         transform: translate3d(-30px, 0, 0);
+     }
+     /*como a animação termina*/
+     to {
+         opacity: 1;
+         /*o texto volta para o lugar normal*/
+         transform: translate3d(0, 0, 0);
+     }
+ }
+ /*quando as classes de dt e dd estiverem 'ativo'*/
+ 
+ .js .js-accordion dd {
+     display: none;
+ }
+ 
+ .js-accordion dt::after {
+     content: '⬎';
+     margin-left: 10px;
+ }
+ 
+ .js-accordion dt.ativo::after {
+     content: '⬏';
+ }
+ 
+ .js-accordion dd.ativo {
+     display: block;
+     animation: slideDown .5s forwards;
+ }
+ /*animação*/
+ 
+ @keyframes slideDown {
+     from {
+         opacity: 0;
+         max-height: 0;
+     }
+     to {
+         opacity: 1;
+         max-height: 200px;
+     }
+ }
+ 
+ .js .js-scroll {
+     opacity: 0;
+     transform: translate3d(-30px, 0, 0);
+     transition: .3s;
+ }
+ /*quando a classe 'ativo' nas seções do site for ativada pelo scroll*/
+ 
+ .js .js-scroll.ativo {
+     opacity: 1;
+     transform: translate3d(0, 0, 0);
+ }
